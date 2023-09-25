@@ -1,0 +1,19 @@
+{
+	"name": "cfx-fivem-js-boilerplate",
+	"license": "MIT",
+	"scripts": {
+		"build": "node scripts/builder.js --mode=production",
+		"dev": "node scripts/builder.js"
+	},
+	"devDependencies": {
+		"@types/node": "^20.6.5",
+		"dotenv": "^16.3.1",
+		"esbuild": "^0.19.3",
+		"rcon": "^1.1.0"
+	},
+	"dependencies": {
+		"@censor1337/cfx-api": "^0.0.7",
+		"@censor1337/cslib": "^0.1.0",
+		"cfx-shared": "^1.0.2"
+	}
+}

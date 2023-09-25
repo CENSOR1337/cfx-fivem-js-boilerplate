@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {},
+        "noImplicitAny": true,
+        "module": "Node16",
+        "target": "es2021",
+        "lib": [
+            "es2021"
+        ],
+        "types": [
+            "@citizenfx/server",
+            "@types/node"
+        ],
+        "moduleResolution": "Node16",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "noEmit": true
+    },
+    "include": [
+        "./",
+    ]
+}
