@@ -33,21 +33,22 @@ const watchPlugin = {
         });
     }
 }
-
-const server = {
-    platform: 'node',
-    target: ['node16'],
-    format: 'cjs',
-};
-
-const client = {
-    platform: 'browser',
-    target: ['chrome93'],
-    format: 'iife',
-};
+const TARGET_OPTIONS = {
+    server: {
+        platform: 'node',
+        target: ['node16'],
+        format: 'cjs',
+    },
+    client: {
+        platform: 'browser',
+        target: ['chrome93'],
+        format: 'iife',
+    }
+}
 
 async function build(context) {
     const isClient = context === 'client';
+    const options = TARGET_OPTIONS[context];
     const esbuildOpt = {
         bundle: true,
         minify: production,
@@ -57,7 +58,7 @@ async function build(context) {
         tsconfig: `src/${context}/tsconfig.json`,
         external: ['crypto'],
         plugins: production ? [] : [watchPlugin],
-        ...(isClient ? client : server),
+        ...options[context],
     }
 
     const esbuildCtx = await esbuild.context(esbuildOpt);
