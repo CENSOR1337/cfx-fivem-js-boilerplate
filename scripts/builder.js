@@ -62,6 +62,7 @@ async function build(context) {
         tsconfig: `src/${context}/tsconfig.json`,
         external: external,
         plugins: plugins,
+        format: "iife",
         ...options,
     }
 
