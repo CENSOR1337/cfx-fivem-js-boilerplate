@@ -2,13 +2,14 @@ const rcon = require('rcon');
 const esbuild = require('esbuild');
 const production = process.argv.findIndex(argItem => argItem === '--mode=production') >= 0;
 require('dotenv').config();
-const rconPassword = process.env.RCON_PWD;
 
+const rconPassword = process.env.RCON_PWD;
 const rconClient = new rcon("localhost", 30120, rconPassword, { tcp: false, challenge: false, });
 const packageJson = require('../package.json');
 const resourceName = packageJson.name;
 
 function ensureResource() {
+    console.log(`Ensuring ${resourceName} resource...`);
     rconClient.send(`ensure ${resourceName}`);
 }
 
@@ -49,6 +50,12 @@ const TARGET_OPTIONS = {
 async function build(context) {
     const isClient = context === 'client';
     const options = TARGET_OPTIONS[context];
+    const plugins = [];
+    const external = []
+
+    if (!production) plugins.push(watchPlugin);
+    if (!isClient) external.push('crypto')
+
     const esbuildOpt = {
         bundle: true,
         minify: production,
@@ -56,8 +63,8 @@ async function build(context) {
         outfile: `dist/${context}.js`,
         logLevel: 'info',
         tsconfig: `src/${context}/tsconfig.json`,
-        external: ['crypto'],
-        plugins: production ? [] : [watchPlugin],
+        external: external,
+        plugins: plugins,
         ...options[context],
     }
 
