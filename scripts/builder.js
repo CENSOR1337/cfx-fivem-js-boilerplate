@@ -62,7 +62,7 @@ async function build(context) {
         tsconfig: `src/${context}/tsconfig.json`,
         external: external,
         plugins: plugins,
-        ...options[context],
+        ...options,
     }
 
     const esbuildCtx = await esbuild.context(esbuildOpt);
