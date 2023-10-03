@@ -6,13 +6,13 @@
 		"dev": "node scripts/builder.js"
 	},
 	"devDependencies": {
-		"@types/node": "^20.7.0",
+		"@types/node": "^20.8.2",
 		"dotenv": "^16.3.1",
-		"esbuild": "^0.19.3",
+		"esbuild": "^0.19.4",
 		"rcon": "^1.1.0"
 	},
 	"dependencies": {
-		"@censor1337/cfx-api": "^0.1.0",
+		"@censor1337/cfx-api": "^0.1.1",
 		"@censor1337/cslib": "^0.1.3"
 	}
 }
