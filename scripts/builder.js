@@ -37,13 +37,10 @@ const watchPlugin = {
 const TARGET_OPTIONS = {
     server: {
         platform: 'node',
-        target: ['node16'],
-        format: 'cjs',
+        target: 'node16',
     },
     client: {
-        platform: 'browser',
-        target: ['chrome93'],
-        format: 'iife',
+        target: 'es2020',
     }
 }
 
