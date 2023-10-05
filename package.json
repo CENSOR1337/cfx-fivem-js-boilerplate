@@ -12,7 +12,7 @@
 		"rcon": "^1.1.0"
 	},
 	"dependencies": {
-		"@censor1337/cfx-api": "^0.1.1",
+		"@censor1337/cfx-api": "^0.1.2",
 		"@censor1337/cslib": "^0.2.0"
 	}
 }
