@@ -9,7 +9,6 @@
             "es2021"
         ],
         "types": [
-            "@citizenfx/server",
             "@types/node"
         ],
         "moduleResolution": "Node16",

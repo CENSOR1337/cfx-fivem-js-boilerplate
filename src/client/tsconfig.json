@@ -8,9 +8,7 @@
         "lib": [
             "es2021"
         ],
-        "types": [
-            "@citizenfx/client"
-        ],
+        "types": [],
         "moduleResolution": "Node16",
         "resolveJsonModule": true,
         "esModuleInterop": true,
